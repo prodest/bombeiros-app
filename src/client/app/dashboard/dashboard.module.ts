@@ -6,7 +6,7 @@ import { ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { HomeModule } from './home/home.module';
 import { ChartModule } from './charts/chart.module';
-import { BlankPageModule } from './blank-page/blankPage.module';
+import { AlertPageModule } from './alerts/alert.module';
 import { TableModule } from './tables/table.module';
 import { FormModule } from './forms/forms.module';
 import { GridModule } from './grid/grid.module';
@@ -32,7 +32,7 @@ import {SidebarComponent} from '../shared/index';
         GridModule,
     	BSComponentModule,
         BSElementModule,
-        BlankPageModule
+        AlertPageModule
     ],
     declarations: [DashboardComponent, TopNavComponent, SidebarComponent],
     exports: [DashboardComponent, TopNavComponent, SidebarComponent]

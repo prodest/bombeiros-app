@@ -12,12 +12,6 @@ import { Component } from '@angular/core';
 })
 export class TimelineComponent { }
 
-@Component({
-	moduleId: module.id,
-	selector: 'chat-cmp',
-	templateUrl: 'chat.html'
-})
-export class ChatComponent {}
 
 @Component({
 	moduleId: module.id,
@@ -29,53 +23,43 @@ export class NotificationComponent { }
 @Component({
 	moduleId: module.id,
 	selector: 'home-cmp',
-	templateUrl: 'home.component.html'
+	templateUrl: 'home.component.html',
+	styleUrls: ['home.css'],
 })
 
 export class HomeComponent {
-	/* Carousel Variable */
-	myInterval: number = 5000;
-	index: number = 0;
-	slides: Array<any> = [];
-	imgUrl: Array<any> = [
-		`assets/img/slider1.jpg`,
-		`assets/img/slider2.jpg`,
-		`assets/img/slider3.jpg`,
-		`assets/img/slider0.jpg`
-	];
-	/* END */
-	/* Alert component */
-	public alerts:Array<Object> = [
-	   {
-	     type: 'danger',
-	     msg: 'Oh snap! Change a few things up and try submitting again.'
-	   },
-	   {
-	     type: 'success',
-	     msg: 'Well done! You successfully read this important alert message.',
-	     closable: true
-	   }
-	 ];
+	// google maps zoom level
+	zoom: number = 8;
+	// initial center position for the map
+	lat: number = 51.673858;
+	lng: number = 7.815982;
 
-	 public closeAlert(i:number):void {
-	   this.alerts.splice(i, 1);
-	 }
-	/* END*/
+	markers: Imarker[] = [
+	  {
+		  lat: 51.673858,
+		  lng: 7.815982,
+		  label: 'A',
+		  draggable: true
+	  },
+	  {
+		  lat: 51.373858,
+		  lng: 7.215982,
+		  label: 'B',
+		  draggable: false
+	  },
+	  {
+		  lat: 51.723858,
+		  lng: 7.895982,
+		  label: 'C',
+		  draggable: true
+	  }
+  ];
+}
 
-	constructor() {
-		for (let i = 0; i < 4; i++) {
-			this.addSlide();
-		}
-	}
-
-	/* Carousel */
-	addSlide() {
-		let i = this.slides.length;
-		this.slides.push({
-			image: this.imgUrl[i],
-			text: `${['Dummy ', 'Dummy ', 'Dummy ', 'Dummy '][this.slides.length % 4]}
-      			${['text 0', 'text 1', 'text 2', 'text 3'][this.slides.length % 4]}`
-		});
-	}
-	/* END */
+// just an interface for type safety.
+interface Imarker {
+	lat: number;
+	lng: number;
+	label?: string;
+	draggable: boolean;
 }

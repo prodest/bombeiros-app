@@ -2,7 +2,7 @@ import { Route } from '@angular/router';
 
 import { HomeRoutes } from './home/index';
 import { ChartRoutes } from './charts/index';
-import { BlankPageRoutes } from './blank-page/index';
+import { AlertRoutes } from './alerts/index';
 import { TableRoutes } from './tables/index';
 import { FormRoutes } from './forms/index';
 import { GridRoutes } from './grid/index';
@@ -19,11 +19,11 @@ export const DashboardRoutes: Route[] = [
 	    	...HomeRoutes,
 	    	...ChartRoutes,
 	    	...BSComponentRoutes,
-        ...TableRoutes,
-	    	...BlankPageRoutes,
-        ...FormRoutes,
-        ...GridRoutes,
-        ...BSElementRoutes
+        	...TableRoutes,
+	    	...AlertRoutes,
+			...FormRoutes,
+			...GridRoutes,
+			...BSElementRoutes
     	]
   	}
 ];
